@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col s4">
+        <div class="card">
+            <div class="card-content">
+                <form #emp_contForm="ngForm" (ngSubmit)="addEmp_cont(emp_contForm)">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="empcontService.selectedEmp_cont._id">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="nombreContratista" #nombreContratista="ngModel" [(ngModel)]="empcontService.selectedEmp_cont.nombreContratista">
+                            <label for="nombreC">Nombre del contratista</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="nombreEmpleado" #nombreEmpleado="ngModel" [(ngModel)]="empcontService.selectedEmp_cont.nombreEmpleado">
+                            <label for="nombreE">Nombre del empleado</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="tiempoTrabajado" #tiempoTrabajado="ngModel" [(ngModel)]="empcontService.selectedEmp_cont.tiempoTrabajado">
+                            <label for="tiempoT">Tiempo trabajado</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="horasFaltantes" #horasFaltantes="ngModel" [(ngModel)]="empcontService.selectedEmp_cont.horasFaltantes">
+                            <label for="horasF">Horas faltantes</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="nombreObra" #nombreObra="ngModel" [(ngModel)]="empcontService.selectedEmp_cont.nombreObra">
+                            <label for="nombreO">Nombre de la obra</label>
+                        </div>
+                        <div class="card-action">
+                            <div class='input-field col s12'>
+                                <button class="btn right" style="margin-left: 3px;">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col s7">
+        <table>
+            <thead>
+                <th>Nombre del contratista</th>
+                <th>Nombre del empleado</th>
+                <th>Tiempo trabajado/hr</th>
+                <th>Horas faltantes</th>
+                <th>Nombre de la obra</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let emp_cont of empcontService.emp_conts">
+                    <td>{{ emp_cont.nombreContratista }}</td>
+                    <td>{{ emp_cont.nombreEmpleado }}</td>
+                    <td>{{ emp_cont.tiempoTrabajado }}</td>
+                    <td>{{ emp_cont.horasFaltantes }}</td>
+                    <td>{{ emp_cont.nombreObra }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

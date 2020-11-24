@@ -12,7 +12,16 @@ contractorCtrl.getContractor = async(req, res) => {
 }
 
 contractorCtrl.createContractor = async(req, res) => {
-    const contractor = new Contractor(req.body);
+    const contractor = new Contractor({
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        id_contratista: req.body.id_contratista,
+        fechaNacimiento: req.body.fechaNacimiento,
+        direccion: req.body.direccion,
+        telefono: req.body.telefono,
+        email: req.body.email,
+        empresa: req.body.empresa
+    });
     await contractor.save();
     res.json({
         'status': 'success',
@@ -22,11 +31,14 @@ contractorCtrl.createContractor = async(req, res) => {
 
 contractorCtrl.editContractor = async(req, res) => {
     const { id } = req.params;
-    await Contractor.findByIdAndUpdate(id, req.body, { new: true });
+    result = await Contractor.findByIdAndUpdate(id, req.body, { new: true });
     res.json({
         'status': 'success',
         'message': 'Contratista actualizado',
         'data': result
+
+    }).catch((error) => {
+        console.log(error.message)
     });
 };
 

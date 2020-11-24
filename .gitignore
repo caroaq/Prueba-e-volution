@@ -1,0 +1,12 @@
+# Created by https://www.toptal.com/developers/gitignore/api/node,angular,vscode
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,angular,vscode
+
+### Angular ###
+dist/
+tmp/
+app/**/*.js
+app/**/*.js.map
+
+# dependencies
+node_modules/
+package-lock.json

@@ -8,7 +8,8 @@ const ContractorSchema = new Schema({
     fechaNacimiento: { type: String, required: true },
     direccion: { type: String, required: true },
     telefono: { type: String, required: true },
-    email: { type: String, required: true }
+    email: { type: String, required: true },
+    empresa: { type: String, required: true }
 })
 
 module.exports = mongoose.model('Contractor', ContractorSchema);

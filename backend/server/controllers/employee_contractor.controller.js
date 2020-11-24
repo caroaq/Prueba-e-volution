@@ -12,12 +12,18 @@ employee_contractorCtrl.getEmployee_Contractor = async(req, res) => {
 }
 
 employee_contractorCtrl.createEmployee_Contractor = async(req, res) => {
-    const employee_contractor = new Employee_Contractor(req.body);
+    const employee_contractor = new Employee_Contractor({
+        nombreContratista: req.body.nombreContratista,
+        nombreEmpleado: req.body.nombreEmpleado,
+        tiempoTrabajado: req.body.tiempoTrabajado,
+        horasFaltantes: req.body.horasFaltantes,
+        nombreObra: req.body.nombreObra
+    });
     await employee_contractor.save();
     res.json({
         'status': 'success',
         'message': 'Asociación guardada'
     });
-};
+}
 
 module.exports = employee_contractorCtrl;
